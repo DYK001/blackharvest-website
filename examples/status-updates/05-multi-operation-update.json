@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "updateId": "example-multi-operation-update",
+  "summary": "Demonstrate a transactional milestone, devlog, and activity update.",
+  "changes": [
+    {
+      "type": "milestone",
+      "systemId": "zombie-hit-death",
+      "milestoneId": "final-ragdoll-validation",
+      "state": "blocked",
+      "validation": {
+        "manualValidation": "blocked"
+      }
+    },
+    {
+      "type": "devlog",
+      "mode": "add",
+      "slug": "example-transaction-devlog",
+      "title": "Transactional Development Log Template",
+      "summary": "A non-published template used to demonstrate a multi-record update.",
+      "category": "Template",
+      "status": "planned",
+      "validationState": "pending",
+      "relatedSystemIds": [
+        "zombie-hit-death"
+      ],
+      "sections": [
+        {
+          "heading": "Template scope",
+          "paragraphs": [
+            "Replace all template wording with verified development information before publishing."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "activity",
+      "id": "example-transaction-activity",
+      "title": "Transactional activity template",
+      "description": "A non-published template showing how an activity can reference a devlog added in the same update.",
+      "category": "Template",
+      "status": "planned",
+      "validation": "pending",
+      "orderLabel": "Template only — not applied",
+      "relatedDevlogSlug": "example-transaction-devlog"
+    }
+  ]
+}

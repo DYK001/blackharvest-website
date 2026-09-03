@@ -1,0 +1,157 @@
+.hero__media { z-index: 0; }
+.hero__media-slot { z-index: 0; }
+
+.hero__media-treatment,
+.hero__media-asset {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__media-asset {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--hero-media-position-desktop, 50% 50%);
+}
+
+.hero__media-image { z-index: 1; }
+.hero__media-video { z-index: 2; }
+
+.hero__media-treatment {
+  z-index: 3;
+  background:
+    linear-gradient(90deg, rgba(7, 7, 6, 0.84) 0%, rgba(7, 7, 6, 0.58) 38%, rgba(7, 7, 6, 0.09) 72%, rgba(7, 7, 6, 0.36) 100%),
+    linear-gradient(180deg, rgba(7, 7, 6, 0.16) 0%, transparent 48%, rgba(7, 7, 6, 0.82) 100%);
+}
+
+.hero__haze { z-index: 4; }
+.hero__grain { z-index: 5; }
+.hero__vignette { z-index: 6; }
+
+.hero__media[data-media-mode="image"] .hero__haze,
+.hero__media[data-media-mode="video"] .hero__haze { opacity: 0.1; }
+
+.media-showcase {
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(111, 36, 36, 0.1), transparent 32%),
+    #0b0a09;
+}
+
+.media-showcase__heading {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(420px, 1.2fr);
+  gap: 18px 72px;
+  align-items: end;
+  margin-bottom: 54px;
+}
+
+.media-showcase__heading .eyebrow { grid-column: 1 / -1; }
+.media-showcase__heading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 7vw, 7rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  line-height: 0.78;
+}
+.media-showcase__heading > p:last-child {
+  max-width: 520px;
+  margin: 0;
+  color: var(--parchment-dim);
+}
+
+.media-showcase__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(250px, 0.8fr);
+  gap: 26px;
+  align-items: start;
+}
+.media-showcase__layout .media-frame--primary { grid-row: span 2; }
+.media-showcase__layout[data-count="1"] { grid-template-columns: minmax(0, 1fr); }
+
+.media-frame { min-width: 0; margin: 0; }
+.media-frame__surface {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: var(--media-aspect);
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+}
+.media-frame__surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.24);
+}
+.media-frame img,
+.media-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.media-frame__label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--parchment-dim);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.media-frame figcaption,
+.media-comparison__caption {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+.media-frame figcaption { display: grid; gap: 5px; }
+.media-frame figcaption small {
+  color: var(--parchment-dim);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.devlog-media {
+  display: grid;
+  gap: 28px;
+  margin: 8px 0 64px 72px;
+}
+.devlog-page__heading + .devlog-media {
+  max-width: 1040px;
+  margin: -46px 0 96px;
+}
+.media-comparison__frames {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+@media (max-width: 800px) {
+  .hero__media-asset {
+    object-position: var(--hero-media-position-tablet, 50% 50%);
+  }
+  .media-showcase__heading { grid-template-columns: 1fr; gap: 24px; }
+  .media-showcase__heading .eyebrow { grid-column: 1; }
+  .media-showcase__layout { grid-template-columns: 1fr; }
+  .media-showcase__layout .media-frame--primary { grid-row: auto; }
+}
+
+@media (max-width: 560px) {
+  .hero__media-asset {
+    object-position: var(--hero-media-position-mobile, 50% 50%);
+  }
+  .media-showcase__heading { margin-bottom: 38px; }
+  .media-showcase__heading h2 { font-size: clamp(3.4rem, 17vw, 5rem); }
+  .devlog-media,
+  .devlog-page__heading + .devlog-media { margin: 0 0 54px; }
+  .media-comparison__frames { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__media-video { display: none; }
+}

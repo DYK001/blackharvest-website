@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "updateId": "example-ragdoll-validation-note",
+  "summary": "Demonstrate a verified milestone status update without changing the current blocker.",
+  "changes": [
+    {
+      "type": "milestone",
+      "systemId": "zombie-hit-death",
+      "milestoneId": "final-ragdoll-validation",
+      "state": "blocked",
+      "publicNote": "Template preview only: replace this note with a newly verified public update before publishing.",
+      "validation": {
+        "manualValidation": {
+          "state": "blocked",
+          "detail": "Ragdoll launch regression blocks final validation."
+        }
+      }
+    }
+  ]
+}

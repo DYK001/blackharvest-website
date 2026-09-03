@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "updateId": "example-activity-addition",
+  "summary": "Demonstrate the structure for a verified public activity entry.",
+  "changes": [
+    {
+      "type": "activity",
+      "id": "example-verified-activity",
+      "title": "Verified development activity template",
+      "description": "Replace this template wording with an explicitly verified public development fact before publishing.",
+      "category": "Template",
+      "status": "planned",
+      "validation": "pending",
+      "orderLabel": "Template only — not applied",
+      "relatedDevlogSlug": "death-ragdoll-body-thud-validation"
+    }
+  ]
+}

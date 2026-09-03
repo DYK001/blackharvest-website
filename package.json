@@ -2,11 +2,21 @@
   "name": "blackharvest-site",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run media:check && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "status:check": "tsx scripts/status-publisher/cli.mts check",
+    "status:publish": "tsx scripts/status-publisher/cli.mts publish",
+    "status:restore": "tsx scripts/status-publisher/cli.mts restore",
+    "test:status": "tsx --test scripts/status-publisher/*.test.mts",
+    "media:check": "tsx scripts/media/check.mts",
+    "test:media": "tsx --test scripts/media/*.test.mts"
   },
   "dependencies": {
     "next": "16.3.4",
@@ -21,6 +31,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.23.13",
+    "typescript": "^5",
+    "zod": "^4.5.4"
   }
 }

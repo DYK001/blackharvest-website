@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "updateId": "unknown-milestone-fixture",
+  "summary": "This fixture must be rejected without writing.",
+  "changes": [
+    {
+      "type": "milestone",
+      "systemId": "zombie-hit-death",
+      "milestoneId": "unknown-milestone",
+      "state": "implemented"
+    }
+  ]
+}

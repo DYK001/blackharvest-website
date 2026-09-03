@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "updateId": "example-devlog-addition",
+  "summary": "Demonstrate the structure for a verified development-log entry.",
+  "changes": [
+    {
+      "type": "devlog",
+      "mode": "add",
+      "slug": "example-verified-development-log",
+      "title": "Verified Development Log Template",
+      "summary": "Replace this template summary with explicitly verified project information before publishing.",
+      "category": "Template",
+      "status": "planned",
+      "validationState": "pending",
+      "relatedSystemIds": [
+        "survival"
+      ],
+      "sections": [
+        {
+          "heading": "Verified scope",
+          "paragraphs": [
+            "Replace this template paragraph with facts supported by the structured project status data."
+          ]
+        }
+      ]
+    }
+  ]
+}

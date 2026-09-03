@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "updateId": "example-current-focus-blocked",
+  "summary": "Demonstrate an explicit current-focus update using the already published state.",
+  "changes": [
+    {
+      "type": "current-focus",
+      "title": "Zombie Death Ragdoll Validation",
+      "status": "blocked",
+      "explanation": "Death ragdoll and body-thud integration are implemented, but final manual validation is blocked by a physics regression that can launch the zombie during the ragdoll transition.",
+      "nextAction": "Resolve ragdoll launch regression, then repeat manual death-settle and body-thud validation.",
+      "validation": {
+        "implementation": {
+          "state": "passed",
+          "detail": "Death ragdoll and body-thud integration are implemented."
+        },
+        "compile": {
+          "state": "passed",
+          "detail": "The current implementation compiles."
+        },
+        "automatedTest": {
+          "state": "not-applicable",
+          "detail": "No automated result is claimed for this physics behavior."
+        },
+        "manualValidation": {
+          "state": "blocked",
+          "detail": "Blocked by the ragdoll launch regression."
+        }
+      }
+    }
+  ]
+}

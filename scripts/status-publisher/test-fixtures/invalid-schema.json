@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 2,
+  "updateId": "invalid-schema-fixture",
+  "summary": "This fixture must be rejected.",
+  "changes": []
+}
