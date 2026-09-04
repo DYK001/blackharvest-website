@@ -1,29 +1,16 @@
-import { ActivityFeed } from "@/components/activity-feed";
-import { CurrentTask } from "@/components/current-task";
-import { DevLogPreview } from "@/components/dev-log-preview";
-import { DevelopmentStatus } from "@/components/development-status";
-import { GameSystems } from "@/components/game-systems";
-import { Hero } from "@/components/hero";
-import { MediaShowcase } from "@/components/media/media-showcase";
-import { Roadmap } from "@/components/roadmap";
-import { SiteFooter } from "@/components/site-footer";
-import { SystemStatusGrid } from "@/components/system-status-grid";
+import type { Metadata } from "next";
+import { HomePage } from "@/components/home-page";
+import { en } from "@/i18n/en";
+import { getLanguageAlternates } from "@/i18n";
+
+export const metadata: Metadata = {
+  title: { absolute: en.metadata.homeTitle },
+  description: en.metadata.homeDescription,
+  alternates: { canonical: "/", languages: getLanguageAlternates("/") },
+  openGraph: { title: en.metadata.socialTitle, description: en.metadata.socialDescription, type: "website", url: "/", locale: "en_US" },
+  twitter: { card: "summary_large_image", title: en.metadata.socialTitle, description: en.metadata.socialDescription },
+};
 
 export default function Home() {
-  return (
-    <>
-      <main>
-        <Hero />
-        <DevelopmentStatus />
-        <MediaShowcase />
-        <GameSystems />
-        <SystemStatusGrid />
-        <CurrentTask />
-        <Roadmap />
-        <ActivityFeed />
-        <DevLogPreview />
-      </main>
-      <SiteFooter />
-    </>
-  );
+  return <HomePage locale="en" />;
 }

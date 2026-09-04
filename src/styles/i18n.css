@@ -1,0 +1,156 @@
+.locale-root {
+  min-height: 100vh;
+}
+
+.locale-root[data-locale="ko"] {
+  --font-display: var(--font-blackharvest-display-ko), "Noto Serif KR", serif;
+  --font-body: var(--font-blackharvest-body-ko), "Noto Sans KR", sans-serif;
+  font-family: var(--font-body);
+  word-break: keep-all;
+}
+
+.locale-root[data-locale="ko"] :is(.hero h1, .wordmark, .site-footer__title) {
+  font-family: var(--font-blackharvest-display), Georgia, serif;
+}
+
+.locale-root[data-locale="ko"] .wordmark__sigil {
+  font-family: var(--font-blackharvest-body), Arial, sans-serif;
+}
+
+.locale-root[data-locale="ko"] :is(
+  .eyebrow,
+  .button,
+  .text-link,
+  .status-label,
+  .validation-label,
+  .micro-label,
+  .media-frame__label,
+  .site-header nav a,
+  .header-return,
+  .site-footer nav a,
+  .development-focus__area,
+  .development-focus__next > span,
+  .development-focus__record > div > span:first-child,
+  .devlog-page__kicker,
+  .devlog-page__meta > div > span:first-child,
+  .devlog-entry__systems
+) {
+  letter-spacing: 0.055em;
+  line-height: 1.55;
+  text-transform: none;
+}
+
+.locale-root[data-locale="ko"] :is(
+  .section-header h2,
+  .development-focus__copy h2,
+  .media-showcase__heading h2,
+  .system-ledger h3,
+  .validation-dossier__heading h3,
+  .roadmap-ledger__main h3,
+  .game-system h3,
+  .devlog-entry h3,
+  .devlog-page__heading h1,
+  .devlog-page__sections h2,
+  .devlog-page__validation > h2
+) {
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+
+.locale-root[data-locale="ko"] .section-header h2 {
+  font-size: clamp(2.9rem, 5vw, 5rem);
+}
+
+.locale-root[data-locale="ko"] .development-focus__copy h2 {
+  font-size: clamp(3.3rem, 5.8vw, 5.7rem);
+}
+
+.locale-root[data-locale="ko"] .media-showcase__heading h2 {
+  font-size: clamp(3.4rem, 6.3vw, 6rem);
+}
+
+.locale-root[data-locale="ko"] .devlog-page__heading {
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 290px);
+  column-gap: clamp(40px, 4.5vw, 60px);
+}
+
+.locale-root[data-locale="ko"] .devlog-page__heading h1 {
+  max-width: 1000px;
+  font-size: clamp(3.5rem, 6.15vw, 6.15rem);
+  letter-spacing: -0.022em;
+  word-break: keep-all;
+}
+
+.locale-root[data-locale="ko"] .devlog-page__summary {
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+.locale-root[data-locale="ko"] .devlog-page__meta {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 0.8fr) minmax(0, 1.4fr);
+}
+
+.locale-root[data-locale="ko"] .devlog-page__meta :is(strong, time) {
+  overflow-wrap: anywhere;
+  line-height: 1.65;
+}
+
+.locale-root[data-locale="ko"] .devlog-page__sections {
+  max-width: 720px;
+}
+
+.locale-root[data-locale="ko"] .devlog-page__sections p {
+  max-width: 640px;
+}
+
+.locale-root[data-locale="ko"] .devlog-page::before {
+  content: "기록";
+  letter-spacing: -0.05em;
+}
+
+.locale-root[data-locale="ko"] .development-focus__phase small {
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 1024px) {
+  .locale-root[data-locale="ko"] .devlog-page__heading {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .locale-root[data-locale="ko"] .devlog-page__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .locale-root[data-locale="ko"] .devlog-page__meta > div,
+  .locale-root[data-locale="ko"] .devlog-page__meta > div:first-child,
+  .locale-root[data-locale="ko"] .devlog-page__meta > div:nth-child(3) {
+    min-height: 68px;
+    padding-inline: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .locale-root[data-locale="ko"] .devlog-page__meta > div:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .locale-root[data-locale="ko"] .section-header h2 {
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
+  }
+
+  .locale-root[data-locale="ko"] .development-focus__copy h2 {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+
+  .locale-root[data-locale="ko"] .media-showcase__heading h2 {
+    font-size: clamp(3rem, 14vw, 4.2rem);
+  }
+
+  .locale-root[data-locale="ko"] .devlog-page__heading h1 {
+    font-size: clamp(2.65rem, 11.45vw, 3.7rem);
+  }
+}

@@ -1,17 +1,19 @@
 import Link from "next/link";
-import { activityEntries } from "@/data/activity";
 import { SectionHeader } from "@/components/section-header";
 import { StatusLabel, ValidationLabel } from "@/components/status-label";
+import { getDictionary, getLocalizedActivities, localizedPath, type Locale } from "@/i18n";
 
-export function ActivityFeed() {
+export function ActivityFeed({ locale }: { locale: Locale }) {
+  const dictionary = getDictionary(locale);
+  const activityEntries = getLocalizedActivities(locale);
   return (
     <section className="section-block shell" id="activity" aria-labelledby="activity-heading">
       <SectionHeader
         headingId="activity-heading"
         index="06"
-        eyebrow="Recent activity"
-        title="Dispatches from development."
-        description="Verified results and known implementation states, ordered without invented dates."
+        eyebrow={dictionary.activity.eyebrow}
+        title={dictionary.activity.title}
+        description={dictionary.activity.description}
       />
       <div className="activity-feed">
         {activityEntries.map((entry, index) => (
@@ -26,15 +28,15 @@ export function ActivityFeed() {
               <p>{entry.description}</p>
             </div>
             <div className="activity-entry__meta">
-              <StatusLabel status={entry.status} />
+              <StatusLabel status={entry.status} locale={locale} />
               <span className="activity-entry__validation">
-                Validation <ValidationLabel state={entry.validation} />
+                {dictionary.activity.validation} <ValidationLabel state={entry.validation} locale={locale} />
                 {entry.validationDetail ? <small>{entry.validationDetail}</small> : null}
               </span>
             </div>
             {entry.devlogSlug ? (
-              <Link className="text-link" href={`/devlog/${entry.devlogSlug}`} aria-label={`Read development log: ${entry.title}`}>
-                Read log <span aria-hidden="true">↗</span>
+              <Link className="text-link" href={localizedPath(locale, `/devlog/${entry.devlogSlug}`)} aria-label={`${dictionary.activity.readLogLabel}: ${entry.title}`}>
+                {dictionary.activity.readLog} <span aria-hidden="true">↗</span>
               </Link>
             ) : null}
           </article>

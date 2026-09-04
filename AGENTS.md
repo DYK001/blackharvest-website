@@ -28,3 +28,6 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 16. Files in `examples/status-updates` are structural templates and must never be applied unchanged.
 17. Keep `.status-backups` local and Git-ignored. Do not publish its contents or internal status history to the public UI.
 18. The status publisher must remain local-only: no Unreal access, remote Git actions, deployment, hosting, account, database, or cloud integration.
+19. English is the canonical default locale at `/`; Korean is a presentation overlay at `/ko` and must use the same structured status facts, IDs, states, and development-log slugs.
+20. Keep Korean copy in `src/i18n` and use explicit English fallback in shared renderers. Never duplicate project-status truth into locale files.
+21. Run `npm run i18n:check` whenever published systems, milestones, activities, development logs, or media assets change.

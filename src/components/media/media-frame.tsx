@@ -2,25 +2,23 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import { getMediaMimeType } from "@/lib/media";
 import type { MediaAsset } from "@/types/media";
+import { getDictionary, getMediaLabel, type Locale } from "@/i18n";
 
 interface MediaFrameProps {
   asset: MediaAsset;
   sizes: string;
   label?: string;
   className?: string;
+  locale: Locale;
 }
 
-export function MediaFrame({ asset, sizes, label, className }: MediaFrameProps) {
+export function MediaFrame({ asset, sizes, label, className, locale }: MediaFrameProps) {
+  const dictionary = getDictionary(locale);
   const style = {
     "--media-aspect": `${asset.width} / ${asset.height}`,
   } as CSSProperties;
   const visibleLabel =
-    label ??
-    (asset.category
-      ? asset.category.replace(/(^|-)([a-z])/g, (_, separator, letter) =>
-          `${separator === "-" ? " " : ""}${letter.toUpperCase()}`,
-        )
-      : undefined);
+    label ?? getMediaLabel(locale, asset);
 
   return (
     <figure
@@ -48,7 +46,7 @@ export function MediaFrame({ asset, sizes, label, className }: MediaFrameProps) 
             aria-label={asset.alt}
           >
             <source src={asset.src} type={getMediaMimeType(asset)} />
-            Your browser does not support this BlackHarvest video clip.
+            {dictionary.media.unsupportedVideo}
           </video>
         )}
       </div>
@@ -57,7 +55,7 @@ export function MediaFrame({ asset, sizes, label, className }: MediaFrameProps) 
           {asset.caption ? <span>{asset.caption}</span> : null}
           {asset.credit ? (
             <small>
-              Credit: {asset.credit.label}
+              {dictionary.media.credit}: {asset.credit.label}
               {asset.credit.note ? ` — ${asset.credit.note}` : ""}
             </small>
           ) : null}

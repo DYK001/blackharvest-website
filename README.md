@@ -18,6 +18,12 @@ npm run dev
 
 The site is available at `http://localhost:3000`.
 
+## English and Korean routes
+
+English remains the canonical default at `/`, with Korean available at `/ko`. Development-log slugs are shared across both route trees: `/devlog/[slug]` and `/ko/devlog/[slug]`. The language switch preserves the current homepage or development-log context.
+
+Verified project facts remain in `src/data`. Korean presentation copy is keyed to the same stable IDs and slugs in `src/i18n/ko.ts`; it must not introduce or override status values, milestone states, dates, or validation outcomes. Shared rendering helpers fall back to the canonical English text if a translation is unavailable, while `npm run i18n:check` requires complete Korean coverage for every currently published system, milestone, activity, development log, and public media asset.
+
 ## Project status updates
 
 Public development facts are stored in `src/data` and typed by `src/types/project.ts`. Update these records rather than embedding project status inside presentation components.
@@ -49,12 +55,13 @@ npm run test:status
 npm run status:check
 npm run test:media
 npm run media:check
+npm run i18n:check
 npm run lint
 npm run typecheck
 npm run build
 ```
 
-`npm run build` is the production build command and runs the media integrity check before `next build`. To smoke-test that build locally, run `npm run start` and visit `http://localhost:3000`.
+`npm run build` is the production build command and runs the media and localization integrity checks before `next build`. To smoke-test that build locally, run `npm run start` and visit `http://localhost:3000`.
 
 ## Environment variables
 

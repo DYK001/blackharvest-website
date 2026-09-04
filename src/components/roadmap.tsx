@@ -1,24 +1,25 @@
-import { roadmapItems } from "@/data/roadmap";
-import { getDevelopmentSystem } from "@/data/development-systems";
 import { getSystemProgress } from "@/lib/progress";
 import { SectionHeader } from "@/components/section-header";
 import { StatusLabel } from "@/components/status-label";
 import { MilestoneTrack } from "@/components/milestone-track";
+import { getDictionary, getLocalizedDevelopmentSystem, getLocalizedRoadmap, type Locale } from "@/i18n";
 
-export function Roadmap() {
+export function Roadmap({ locale }: { locale: Locale }) {
+  const dictionary = getDictionary(locale);
+  const roadmapItems = getLocalizedRoadmap(locale);
   return (
-    <section className="section-block section-block--roadmap" id="roadmap" aria-labelledby="roadmap-heading">
+    <section className="section-block section-block--roadmap" id="roadmap" aria-labelledby="roadmap-heading" data-campaign={dictionary.roadmap.campaign}>
       <div className="shell">
         <SectionHeader
           headingId="roadmap-heading"
         index="05"
-        eyebrow="Roadmap"
-        title="The campaign of work ahead."
-        description="A high-level sequence shaped by the current published state of each system."
+        eyebrow={dictionary.roadmap.eyebrow}
+        title={dictionary.roadmap.title}
+        description={dictionary.roadmap.description}
         />
         <ol className="roadmap-ledger">
           {roadmapItems.map((item, index) => {
-            const system = item.kind === "system" ? getDevelopmentSystem(item.systemId) : undefined;
+            const system = item.kind === "system" ? getLocalizedDevelopmentSystem(locale, item.systemId) : undefined;
 
             if (item.kind === "system" && !system) {
               throw new Error(`Roadmap references an unknown system: ${item.systemId}`);
@@ -33,7 +34,7 @@ export function Roadmap() {
             <li data-status={status} key={item.id}>
               <div className="roadmap-ledger__heading">
                 <span className="roadmap-ledger__number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                <StatusLabel status={status} />
+                <StatusLabel status={status} locale={locale} />
               </div>
               <div className="roadmap-ledger__main">
                 <h3><span>{item.title}</span></h3>
@@ -41,7 +42,7 @@ export function Roadmap() {
               </div>
               <div className="roadmap-ledger__state">
                 {progress && system?.milestones ? (
-                  <MilestoneTrack label={item.title} milestones={system.milestones} compact />
+                  <MilestoneTrack label={item.title} milestones={system.milestones} compact locale={locale} />
                 ) : (
                   <p>{progressNote}</p>
                 )}

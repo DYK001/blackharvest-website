@@ -385,7 +385,7 @@
     #0a0908;
 }
 .section-block--roadmap::after {
-  content: "CAMPAIGN";
+  content: attr(data-campaign);
   position: absolute;
   top: 78px;
   right: -3vw;

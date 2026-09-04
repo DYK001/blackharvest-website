@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "npm run media:check && next build",
+    "build": "npm run media:check && npm run i18n:check && next build",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
@@ -16,7 +16,8 @@
     "status:restore": "tsx scripts/status-publisher/cli.mts restore",
     "test:status": "tsx --test scripts/status-publisher/*.test.mts",
     "media:check": "tsx scripts/media/check.mts",
-    "test:media": "tsx --test scripts/media/*.test.mts"
+    "test:media": "tsx --test scripts/media/*.test.mts",
+    "i18n:check": "tsx scripts/i18n/check.mts"
   },
   "dependencies": {
     "next": "16.3.4",

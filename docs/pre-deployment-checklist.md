@@ -9,6 +9,7 @@ Run this checklist from the repository root before uploading to GitHub and again
 - [ ] Confirm `.next/`, `node_modules/`, `.status-backups/`, `review/`, environment files, logs, and temporary files remain Git-ignored.
 - [ ] Scan committed/build-relevant files for secrets, credentials, private addresses, local usernames, and absolute machine or Unreal project paths.
 - [ ] Confirm public project status still matches the verified structured data; do not publish website deployment work as gameplay progress.
+- [ ] Confirm `/` and `/ko` present the same canonical facts and that every language switch preserves its current route or development-log slug.
 
 ## Required validation
 
@@ -16,11 +17,12 @@ Run this checklist from the repository root before uploading to GitHub and again
 - [ ] `npm run status:check`
 - [ ] `npm run test:media`
 - [ ] `npm run media:check`
+- [ ] `npm run i18n:check`
 - [ ] `npm run lint`
 - [ ] `npm run typecheck`
 - [ ] `npm run build`
 - [ ] `git diff --check`
-- [ ] Start the production build with `npm run start` and smoke-test the homepage plus all four `/devlog/[slug]` routes.
+- [ ] Start the production build with `npm run start` and smoke-test both homepages plus all four development logs in both languages (10 routes total).
 
 ## GitHub and Vercel
 
@@ -28,4 +30,4 @@ Run this checklist from the repository root before uploading to GitHub and again
 - [ ] Upload or push the repository to GitHub without local-only artifacts.
 - [ ] Import the repository into Vercel, keep automatic Next.js detection, set the install command to `npm ci`, and confirm the build command is `npm run build`.
 - [ ] Leave environment variables empty unless supplying the optional `NEXT_PUBLIC_SITE_URL` custom-domain override.
-- [ ] After deployment, smoke-test desktop and mobile layouts, navigation anchors, fonts, metadata, the Hero image, Field Records image, and combat video/poster; check the browser console for errors.
+- [ ] After deployment, smoke-test desktop and mobile layouts, navigation anchors, language switching, Korean font fallback, localized metadata, the Hero image, Field Records image, and combat video/poster; check the browser console for errors.
