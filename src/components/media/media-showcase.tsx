@@ -14,7 +14,7 @@ export function MediaShowcase({ locale }: { locale: Locale }) {
       aria-labelledby="media-heading"
     >
       <div className="shell">
-        <header className="media-showcase__heading">
+        <header className="media-showcase__heading" data-reveal="rise">
           <p className="eyebrow">
             <span aria-hidden="true" /> {dictionary.fieldRecords.eyebrow}
           </p>

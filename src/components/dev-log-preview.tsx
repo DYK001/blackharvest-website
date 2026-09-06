@@ -36,7 +36,7 @@ export function DevLogPreview({ locale }: { locale: Locale }) {
                 <p>{entry.summary}</p>
                 <span className="devlog-entry__systems">{dictionary.devlogPreview.related}: {relatedSystems.join(" / ")}</span>
               </div>
-              <Link className="text-link" href={localizedPath(locale, `/devlog/${entry.slug}`)}>
+              <Link className="text-link" href={localizedPath(locale, `/devlog/${entry.slug}`)} aria-label={`${dictionary.devlogPreview.readJournal}: ${entry.title}`}>
                 {dictionary.devlogPreview.readJournal} <span aria-hidden="true">↗</span>
               </Link>
             </article>

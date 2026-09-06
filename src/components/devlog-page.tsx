@@ -1,3 +1,6 @@
+import { StructuredData } from "@/components/structured-data";
+import { recoveryEn, recoveryKo } from "@/i18n/recovery";
+import { MotionController } from "@/components/motion-controller";
 import { Fragment } from "react";
 import { DevlogMedia } from "@/components/media/devlog-media";
 import { SiteFooter } from "@/components/site-footer";
@@ -22,15 +25,18 @@ export function DevlogPage({
 
   return (
     <div className="locale-root" data-locale={locale} lang={locale}>
+      <MotionController />
+      <StructuredData locale={locale} entry={entry} />
+      <a className="skip-link" href="#article">{locale === "ko" ? recoveryKo.skip : recoveryEn.skip}</a>
       <SiteHeader
         locale={locale}
         pagePath={`/devlog/${entry.slug}`}
         backHref={`${localizedPath(locale, "/")}#devlog`}
         backLabel={dictionary.navigation.backToDevlog}
       />
-      <main className="devlog-page" data-status={entry.status}>
+      <main id="article" tabIndex={-1} className="devlog-page" data-status={entry.status}>
         <article className="shell devlog-article">
-          <header className="devlog-page__heading">
+          <header className="devlog-page__heading" data-reveal="rise">
             <div className="devlog-page__kicker">
               <p className="eyebrow"><span aria-hidden="true" /> {dictionary.devlogArticle.journal}</p>
               <span>{entry.category}</span>
@@ -64,7 +70,7 @@ export function DevlogPage({
                   <section>
                     <span className="devlog-page__section-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                     <div>
-                      <h2>{section.heading}</h2>
+                      <h2 data-reveal="rise">{section.heading}</h2>
                       {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                     </div>
                   </section>

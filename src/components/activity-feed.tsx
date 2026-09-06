@@ -19,7 +19,7 @@ export function ActivityFeed({ locale }: { locale: Locale }) {
         {activityEntries.map((entry, index) => (
           <article className="activity-entry" key={entry.id}>
             <span className="activity-entry__number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-            <div className="activity-entry__date">
+            <div className="activity-entry__date" data-reveal="fade">
               {entry.date ? <time dateTime={entry.date}>{entry.date}</time> : <span>{entry.orderLabel}</span>}
               <span>{entry.category}</span>
             </div>

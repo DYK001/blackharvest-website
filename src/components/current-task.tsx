@@ -22,7 +22,7 @@ export function CurrentTask({ locale }: { locale: Locale }) {
         </div>
         <div className="validation-table" role="list" aria-label={dictionary.currentTask.stagesLabel}>
           {projectStatus.currentTask.validation.map((step, index) => (
-            <div className="validation-row" data-state={step.state} role="listitem" key={step.kind}>
+            <div className="validation-row" data-reveal="fade" data-state={step.state} role="listitem" key={step.kind}>
               <span className="validation-row__number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
               <div>
                 <span>{dictionary.validationKinds[step.kind]}</span>

@@ -1,3 +1,5 @@
+import { StructuredData } from "@/components/structured-data";
+import { MotionController } from "@/components/motion-controller";
 import { ActivityFeed } from "@/components/activity-feed";
 import { CurrentTask } from "@/components/current-task";
 import { DevLogPreview } from "@/components/dev-log-preview";
@@ -13,6 +15,8 @@ import type { Locale } from "@/i18n";
 export function HomePage({ locale }: { locale: Locale }) {
   return (
     <div className="locale-root" data-locale={locale} lang={locale}>
+      <MotionController />
+      <StructuredData locale={locale} />
       <main>
         <Hero locale={locale} />
         <DevelopmentStatus locale={locale} />

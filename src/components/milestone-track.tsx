@@ -25,6 +25,7 @@ export function MilestoneTrack({
       </div>
       <div
         className="milestone-track__segments"
+        data-reveal="line"
         role="progressbar"
         aria-label={dictionary.developmentSystems.milestonesProgress(label, progress.completed, progress.total)}
         aria-valuemin={0}

@@ -28,7 +28,7 @@ export function MediaFrame({ asset, sizes, label, className, locale }: MediaFram
       {visibleLabel ? (
         <span className="media-frame__label">{visibleLabel}</span>
       ) : null}
-      <div className="media-frame__surface">
+      <div className="media-frame__surface" data-reveal="fade" data-depth={asset.type === "image" ? "image" : undefined}>
         {asset.type === "image" ? (
           <Image
             src={asset.src}
@@ -51,7 +51,7 @@ export function MediaFrame({ asset, sizes, label, className, locale }: MediaFram
         )}
       </div>
       {asset.caption || asset.credit ? (
-        <figcaption>
+        <figcaption data-reveal="fade">
           {asset.caption ? <span>{asset.caption}</span> : null}
           {asset.credit ? (
             <small>

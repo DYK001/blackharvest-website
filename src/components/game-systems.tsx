@@ -14,7 +14,7 @@ export function GameSystems({ locale }: { locale: Locale }) {
         <div className="game-systems game-systems--marketing">
           {gameSystems.map((system, index) => (
             <article className="game-system" key={system.id}>
-              <div className="game-system__index">
+              <div className="game-system__index" data-reveal="fade">
                 <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                 <small>{dictionary.gameSystems.coreSystem}</small>
               </div>

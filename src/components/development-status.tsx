@@ -15,7 +15,7 @@ export function DevelopmentStatus({ locale }: { locale: Locale }) {
         <article className="development-focus__copy">
           <p className="eyebrow"><span aria-hidden="true" /> {dictionary.developmentFocus.eyebrow}</p>
           <p className="development-focus__area">{projectStatus.currentMajorFocus}</p>
-          <h2 id="development-heading">{projectStatus.currentTask.title}</h2>
+          <h2 id="development-heading" data-reveal="rise">{projectStatus.currentTask.title}</h2>
           <p className="development-focus__summary">{projectStatus.currentTask.summary}</p>
           <div className="development-focus__next">
             <span>{dictionary.developmentFocus.nextAction}</span>
@@ -23,7 +23,7 @@ export function DevelopmentStatus({ locale }: { locale: Locale }) {
           </div>
         </article>
 
-        <aside className="development-focus__record" aria-label={dictionary.developmentFocus.stateLabel}>
+        <aside className="development-focus__record" data-reveal="fade" aria-label={dictionary.developmentFocus.stateLabel}>
           <div className="development-focus__gate">
             <span>{dictionary.developmentFocus.currentGate}</span>
             <StatusLabel status={projectStatus.currentTask.status} locale={locale} />
